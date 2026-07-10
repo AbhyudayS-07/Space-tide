@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Word Substitutor</title>
+
+    <script src="space-tide.js" defer></script>
+
+    <style>
+        #boly {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        textarea,
+        button,
+        p {
+            width: 100%;
+            display: block;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 100px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #output {
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 5px solid #007BFF;
+            min-height: 40px;
+            white-space: pre-wrap;
+        }
+
+        #hr1 {
+            background-color: #0056b3;
+            width: 100%;
+            height: 1.2px;
+        }
+
+        #dic {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            font-size: 18px;
+        }
+        #rules {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="boly">
+
+        <h2>Space-Tide Language Translator</h2>
+
+        <!-- User Input Field -->
+        <textarea id="userInput"
+            placeholder="Type your sentence here... (e.g., Hello friend, I love this big world!)"></textarea>
+
+        <!-- Trigger Button -->
+        <button id="submitBtn">Translate</button>
+
+        <!-- Output Display -->
+        <h3>Result:</h3>
+        <p id="output"></p>
+
+    </div>
+
+    <hr id="hr1">
+
+    <div id="dic">
+
+        <h2><center>Dictionary:</center></h2>
+
+        <table style="border-collapse: separate; border-spacing: 60px 0;">
+            <tr>
+
+                <td valign="top">
+                    i → me<br>
+                    you → tu<br>
+                    we → mip<br>
+                    they → tip<br>
+                    yes → aa<br>
+                    no → na<br>
+                    hello → hec<br>
+                    good → gutte<br>
+                    day → sune<br>
+                    night → nune<br>
+                    be → be<br>
+                    have → hab<br>
+                    do → du<br>
+                    go → ga<br>
+                    get → kri<br>
+                    say → se<br>
+                    it → hi<br>
+                    he → hi<br>
+                    she → hi<br>
+                    my → mir<br>
+                    his → tir<br>
+                    her → tir<br>
+                    their → tipir<br>
+                    this → thee<br>
+                    that → thee<br>
+                    what → wat<br>
+                </td>
+
+                <td valign="top">
+                    who → wam<br>
+                    and → ad<br>
+                    or → or<br>
+                    but → bat<br>
+                    if → if<br>
+                    not → na<br>
+                    in → in<br>
+                    on → on<br>
+                    with → wit<br>
+                    from → fro<br>
+                    to → to<br>
+                    of → of<br>
+                    all → ip<br>
+                    one → un<br>
+                    there → tre<br>
+                    so → so<br>
+                    will → il<br>
+                    was → el<br>
+                    water → driker<br>
+                    sea → briker<br>
+                    ocean → briker<br>
+                    star → sunt<br>
+                    moon → mun<br>
+                    sun → sun<br>
+                    sky → skey<br>
+                    wind → wid<br>
+                </td>
+
+                <td valign="top">
+                    light → suni<br>
+                    dark → nasuni<br>
+                    friend → mat<br>
+                    home → livet<br>
+                    love → lof<br>
+                    music → muzik<br>
+                    dream → drim<br>
+                    walk → gage<br>
+                    travel → bage<br>
+                    see → sie<br>
+                    know → kno<br>
+                    live → liv<br>
+                    today → now<br>
+                    tomorrow → noil<br>
+                    yesterday → noel<br>
+                    time → tem<br>
+                    path → way<br>
+                    ship → brot<br>
+                    boat → rot<br>
+                    river → mriker<br>
+                    song → muzi<br>
+                    heart → lif<br>
+                    happy → liff<br>
+                    sad → naliff<br>
+                    big → bi<br>
+                    small → nabi<br>
+                </td>
+
+                <td valign="top">
+                    fast → fas<br>
+                    slow → nafas<br>
+                    beautiful → lifve<br>
+                    world → biet<br>
+                    person → peson<br>
+                    name → nam<br>
+                    man → peson<br>
+                    woman → peson<br>
+                    child → sion<br>
+                    family → lofson<br>
+                    people → bipeson<br>
+                    food → faad<br>
+                    eat → fad<br>
+                    drink → drikad<br>
+                    rest → res<br>
+                    work → nares<br>
+                    room → liveta<br>
+                    door → door<br>
+                    road → gaget<br>
+                    city → miet<br>
+                    tree → gret<br>
+                    flower → flowr<br>
+                    grass → segret<br>
+                    mountain → biston<br>
+                    stone → ston <br>
+                </td>
+
+            </tr>
+        </table>
+
+    </div>
+    <hr id="hr1">
+    <div id="rules">
+        <h2><center>Rules:</center></h2>
+
+        <ol>
+            <li>Words should have easy formation.</li>
+
+            <li>Double-letter words are allowed.</li>
+
+            <li>Words should be easy to pronounce.</li>
+
+            <li>
+                Prefix <strong>ip-</strong> indicates a plural.
+                <br>
+                <em>Examples:</em><br>
+                I → me &nbsp;&nbsp;|&nbsp;&nbsp; We → mip<br>
+                You → tu &nbsp;&nbsp;|&nbsp;&nbsp; They → tip
+            </li>
+
+            <li>
+                Suffix <strong>-ir</strong> indicates possession.
+                <br>
+                <em>Examples:</em><br>
+                My → mir<br>
+                Their → tir
+            </li>
+
+            <li>
+                Prefix <strong>b-</strong> indicates a larger form.
+                <br>
+                <em>Examples:</em><br>
+                Water → driker<br>
+                Ocean / Sea → briker<br>
+                Walk → gage<br>
+                Travel → bage
+            </li>
+
+            <li>
+                Prefix <strong>m-</strong> indicates a medium-sized form.
+                <br>
+                <em>Examples:</em><br>
+                Water → driker<br>
+                River → mriker
+            </li>
+
+            <li>
+                Suffix <strong>-il</strong> indicates the future.
+                <br>
+                <em>Examples:</em><br>
+                Today → now<br>
+                Tomorrow → noil
+            </li>
+
+            <li>
+                Suffix <strong>-el</strong> indicates the past.
+                <br>
+                <em>Examples:</em><br>
+                Today → now<br>
+                Yesterday → noel
+            </li>
+
+            <li>
+                Prefix <strong>na-</strong> indicates the opposite or a negative.
+                <br>
+                <em>Examples:</em><br>
+                Light → suni<br>
+                Dark → nasuni
+            </li>
+
+            <li>
+                Suffix <strong>-et</strong> indicates a place.
+                <br>
+                <em>Examples:</em><br>
+                Live → liv<br>
+                Home → livet
+            </li>
+
+            <li>
+                Suffix <strong>-a</strong> indicates a part of something.
+                <br>
+                <em>Examples:</em><br>
+                Home → livet<br>
+                Room → liveta
+            </li>
+        </ol>
+    </div>
+</body>
+
+</html>
